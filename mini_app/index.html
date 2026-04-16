@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f766e">
+    <title>Табачное Царство</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+    <main class="app">
+        <header class="hero">
+            <p class="hero-sub">Tobacco Kingdom</p>
+            <h1>Каталог товаров</h1>
+            <p>Выбирайте позиции, добавляйте в корзину и отправляйте заказ в один клик.</p>
+        </header>
+
+        <section class="toolbar">
+            <label class="search-box" for="searchInput">
+                <span>Поиск</span>
+                <input id="searchInput" type="search" placeholder="Например: табак, сигареты, гильзы">
+            </label>
+            <div id="categories" class="categories" aria-label="Фильтр категорий"></div>
+        </section>
+
+        <section id="status" class="status" hidden></section>
+        <section id="products" class="products" aria-live="polite"></section>
+    </main>
+
+    <button id="cartButton" class="cart-button" type="button" aria-label="Открыть корзину">
+        Корзина
+        <span id="cartCount" class="badge">0</span>
+    </button>
+
+    <section id="cartPanel" class="cart-panel" aria-hidden="true">
+        <div class="cart-sheet">
+            <header class="cart-header">
+                <h2>Корзина</h2>
+                <button id="closeCartButton" class="ghost" type="button">Закрыть</button>
+            </header>
+
+            <div id="cartItems" class="cart-items"></div>
+
+            <div class="summary">
+                <div><span>Товары</span><strong id="summaryItems">0 ₽</strong></div>
+                <div><span>Доставка</span><strong id="summaryDelivery">500 ₽</strong></div>
+                <div class="summary-total"><span>Итого</span><strong id="summaryTotal">500 ₽</strong></div>
+            </div>
+
+            <form id="checkoutForm" class="checkout-form" novalidate>
+                <h3>Данные для доставки</h3>
+                <label for="cityInput">Город</label>
+                <input id="cityInput" name="city" type="text" required>
+
+                <label for="addressInput">Адрес</label>
+                <input id="addressInput" name="address" type="text" required>
+
+                <label for="nameInput">Имя получателя</label>
+                <input id="nameInput" name="name" type="text" required>
+
+                <label for="phoneInput">Телефон</label>
+                <input id="phoneInput" name="phone" type="tel" placeholder="+7..." required>
+
+                <button id="checkoutButton" class="checkout-button" type="submit">Оформить заказ</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
